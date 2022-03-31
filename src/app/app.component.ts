@@ -41,6 +41,8 @@ export class AppComponent {
     
   }
 
+  
+
   onButtonClick(){
     /* console.log("letter is " + this.includeLetters)
     console.log("Number is " + this.includeNumbers)
@@ -72,6 +74,10 @@ export class AppComponent {
 
     // console.log("valid chars are " + validChars)
     console.log("valid chars are " + generatedPasword)
+  }
+
+  resetPassword(){
+    this.password = " "
   }
 
 }
