@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +26,15 @@ export class AppComponent {
     this.includeSymbols = !this.includeSymbols; 
   }
 
+  specialFunctions = [
+    {
+      useOnlyLetters : this.onChangeUseLetters, 
+      letterTitle: "Use Letter"
+    }, 
+    {
+
+    }
+  ]
   onChangeLength(value:string){
     const parsedValue = parseInt(value); 
     // to check if user enters a non number, it displays 0
