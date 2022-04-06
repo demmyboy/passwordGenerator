@@ -26,15 +26,6 @@ export class AppComponent {
     this.includeSymbols = !this.includeSymbols; 
   }
 
-  specialFunctions = [
-    {
-      useOnlyLetters : this.onChangeUseLetters, 
-      letterTitle: "Use Letter"
-    }, 
-    {
-
-    }
-  ]
   onChangeLength(value:string){
     const parsedValue = parseInt(value); 
     // to check if user enters a non number, it displays 0
@@ -42,10 +33,10 @@ export class AppComponent {
       this.length = parsedValue
     }
 
-    if(parsedValue < 0  || parsedValue > 20){
+   /*  if(parsedValue < 0  || parsedValue > 20){
     
       alert ("Number out of range")
-    }
+    } */
 
     
   }

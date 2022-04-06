@@ -2,60 +2,39 @@
     <div class="columns is-centered">
         <div class="box column is-one-third">
             <h1 class="title has-text-centered">Password Generator App</h1>
+            <form #passwordForm ="ngForm">
+                <div class="field">
+                    <label>Length</label>
+                    <input max="10" required class="input" name="name" #name="ngModel" pattern="^((\\+91-?)|0)?[0-9]{10}$" maxlength="2"  ngModel
+                        (input)="onChangeLength($any($event.target).value)" />
+                        <span class="has-text-centered" *ngIf="name.invalid && name.touched" style="color: red;" >Please enter a Valid Input</span>
 
-            <div class="field">
-                <label>Length</label>
-                <input max="10" required class="input" id="lengthPassword" name="lengthPassword"
-                    (input)="onChangeLength($any($event.target).value)" />
-
-            </div>
-            <app-generate-password> 
-                
-            </app-generate-password>
-            <app-generate-password> </app-generate-password>
-            <app-generate-password> </app-generate-password>
-
-
-            <!-- <div class="field">
-                <div class="control">
-                    <label class="checkbox">
-                        <input (change)="onChangeUseLetters()" type="checkbox" />
-                        Use Letters
-                    </label>
                 </div>
-            </div>
+                <app-generate-password [includes]="includeLetters" (onCheck)="onChangeUseLetters()"
+                    [letterTitle]=" ' Use Letter '"> </app-generate-password>
+                <app-generate-password [includes]="includeNumbers" (onCheck)="onChangeUseNumbers()"
+                    [letterTitle]=" ' Use Numbers '"> </app-generate-password>
+                <app-generate-password [includes]="includeSymbols" (onCheck)="onChangeUseSymbols()"
+                    [letterTitle]=" ' Use Symbols '"> </app-generate-password>
 
-            <div class="field">
-                <div class="control">
-                    <label class="checkbox">
-                        <input (change)="onChangeUseNumbers()" type="checkbox" />
-                        Use Numbers
-                    </label>
-                </div>
-            </div>
 
-            <div class="field">
-                <div class="control">
-                    <label class="checkbox">
-                        <input (change)="onChangeUseSymbols()" type="checkbox" />
-                        Use Symbols
-                    </label>
-                </div>
-            </div> -->
-            
-            <button [disabled]="
+
+
+
+                <button [disabled]="
             !(length && (includeLetters || includeSymbols || includeNumbers))
           " (click)="onButtonClick()" class="button is-link is-fullwidth">
-                Generate!
-            </button>
-            <br>
-            <button (click)="resetPassword()" class="button is-link is-fullwidth">Reset Password</button>
+                    Generate!
+                </button>
+                <br>
+                <button (click)="resetPassword()" class="button is-link is-fullwidth">Reset Password</button>
 
-            <div class="box" *ngIf="password">
-                <label>Your Password</label>
-                <input class="input" [value]="password" />
-            </div>
+                <div class="box" *ngIf="password">
+                    <label>Your Password</label>
+                    <input class="input" [value]="password" />
+
+                </div>
+            </form>
         </div>
     </div>
 </div>
-

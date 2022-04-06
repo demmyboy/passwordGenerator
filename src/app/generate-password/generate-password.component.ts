@@ -1,18 +1,20 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-generate-password',
   templateUrl: './generate-password.component.html',
   styleUrls: ['./generate-password.component.css']
 })
-export class GeneratePasswordComponent implements OnInit {
-  @Input() useOnlyLetters : string = '';
+export class GeneratePasswordComponent {
+  @Output() onCheck: EventEmitter<boolean> = new EventEmitter();
   @Input() letterTitle : string = '';
+  @Input() includes = false;
   
-  constructor() { }
-
-  ngOnInit(): void {
+  change(){
+    this.onCheck.emit(true)
   }
+
+  
   
 
   
